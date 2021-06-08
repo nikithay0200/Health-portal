@@ -1,0 +1,10 @@
+<table class="table text-dark text-center">
+    <thead>
+        <th>ID</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let postObj of users">
+            <td><button class="btn btn-sm btn-warning" (click)="onSelectId(postObj.id)">{{postObj.id}}</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,9 @@
+li{
+    background-color:#d81b60;
+}
+li a{
+  color:white;
+}
+a:focus{
+    background-color:goldenrod ;
+}

@@ -1,0 +1,49 @@
+<input type="text" name="productTitle" placeholder="Search by Brand" class="form-control m-5" [(ngModel)]="searchTerm">
+
+<div class="table-content">
+    <form #ref="ngForm" (ngSubmit)="saveMobile(ref.value)">
+<table class="table text-center text-white">
+   <thead>
+       <th>Brand</th>
+       <th>Description</th>
+       <th>Image</th>
+   </thead>
+   <tbody>
+       <tr *ngFor="let mobile of mobiles | search:searchTerm | paginate:{itemsPerPage:2,currentPage:p};let ind=index">
+          <td>
+              <span *ngIf="!editMobileStatus || editMobileindex!==ind">
+                {{mobile.productTitle | uppercase}}
+              </span>
+              <span *ngIf="editMobileStatus && editMobileindex==ind">
+                <input type="text" name="productTitle" id="" [(ngModel)]="editMobileObj.productTitle" >
+              </span> 
+          </td>
+          <td>
+            <span *ngIf="!editMobileStatus || editMobileindex!==ind">
+              {{mobile.description}}
+            </span>
+            <span *ngIf="editMobileStatus && editMobileindex==ind">
+              <input type="text" name="description" id="" [(ngModel)]="editMobileObj.description" >
+            </span> 
+        </td>
+          <td>
+              <img src={{mobile.productImage}} alt="" width="100px" height="120px">
+          </td>
+          <td>
+              <span *ngIf="!editMobileStatus || editMobileindex!==ind">
+                  <button class="btn btn-warning btn-sm m-1" (click)="editMobile(mobile,ind)"><i class="fas fa-edit">  </i></button>
+                  <button class="btn btn-danger btn-sm m-1" (click)="deleteMobile(mobile)"><i class="fas fa-trash-alt"></i></button>
+              </span>
+              <span *ngIf="editMobileStatus && editMobileindex==ind">
+                  <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-save"></i></button>
+              </span>
+          </td>
+       </tr>
+   </tbody>
+</table>
+</form>
+</div>
+
+<div class="text-center">
+<pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>
