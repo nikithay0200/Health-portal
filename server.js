@@ -28,7 +28,7 @@ app.use((err, req, res, next) => {
 
 
 //assign port
-const port = 3000;
+
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 3000;
