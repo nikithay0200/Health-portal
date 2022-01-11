@@ -1,5 +1,47 @@
-<a routerLink="viewproducts">View Products</a>
-
-<div>
+<!-- <a routerLink="viewproducts">View Products</a> -->
+<!--<nav class="navbar navbar-expand-sm navbar-light mt-3 justify-content-center" style="padding:0">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link shop" routerLink="viewteethproducts" routerLinkActive="active" #rla="routerLinkActive">
+                <span *ngIf="rla.isActive" style="background-color: #f1f7e7;padding:8px">Shop your recommended products</span>
+                <span *ngIf="!rla.isActive" style="padding:8px;color:black">Shop your recommended products</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link shop" routerLink="getinfoonteeth" routerLinkActive="active" #rla1="routerLinkActive">
+                <span *ngIf="rla1.isActive" style="background-color: #f1f7e7;padding:8px">Get info on Teeth</span>
+                <span *ngIf="!rla1.isActive" style="padding:8px;color:black">Get info on Teeth</span>
+                
+            </a>
+        </li> 
+    </ul>
+    </nav> -->
+    <ul class="nav m-0" style="background-color: #cdf2ca;">
+        <li class="nav-item">
+            <a class="nav-link shop" style="margin-left:450px" routerLink="viewproducts" routerLinkActive="active" #rla="routerLinkActive">
+               <span *ngIf="rla.isActive" style="background-color: #f1f7e7;padding:8px 18px 8px 18px;border-radius:25px">View Products</span> 
+               <span *ngIf="!rla.isActive" style="background-color: #cdf2ca;">View Products</span> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link shop" routerLink="addproducts" routerLinkActive="active" #rla1="routerLinkActive">
+                <span *ngIf="rla1.isActive" style="background-color: #f1f7e7;padding:8px 18px 8px 18px;border-radius:25px">Add Products</span> 
+               <span *ngIf="!rla1.isActive" style="background-color: #cdf2ca;">Add Products</span> 
+            </a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link shop" style="margin-left:450px" (click)="adminlogout()"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        </li>
+    </ul>
+    <!-- <ul class="nav m-0" style="background-color: #cdf2ca;">
+        <li class="nav-item">
+            <a class="nav-link shop" style="margin-left:550px" routerLink="viewproducts">View Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link shop" style="margin-left:550px" routerLink="addproducts">Add Products</a>
+        </li>
+    </ul> -->
+    <!-- <a routerlink="viewproducts">View</a> -->
+<div class="container">
     <router-outlet></router-outlet>
 </div>

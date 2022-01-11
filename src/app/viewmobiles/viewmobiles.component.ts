@@ -12,16 +12,16 @@ import { Product } from '../models/product.model';
 export class ViewmobilesComponent implements OnInit {
 
   searchTerm:string;
-  mobiles:Product[];
+  generalData:Product[];
   //inject obj of dataservice class
    constructor(private dsObj:DataService){
 
    }
    ngOnInit(){
-     this.dsObj.getMobilesData()
+     this.dsObj.getGeneralData()
      .subscribe(
        data=>{
-         this.mobiles=data;
+         this.generalData=data;
        },
        err=>{
          console.log("err is",err);

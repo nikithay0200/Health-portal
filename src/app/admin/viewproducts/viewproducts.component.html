@@ -1,41 +1,81 @@
-<input type="text" name="productTitle" placeholder="Search by Brand" class="form-control m-5" [(ngModel)]="searchTerm">
+<ul class="nav nav-pills justify-content-evenly mt-3 pro">
+  <li class="nav-item active">
+    <a class="nav-link"  (click)="getProducts()">General</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getDiabetesProd()">Diabetes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getCancerData()">Cancer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getFeverData()">Fever</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getColdData()">Cold/Flu</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getPilesData()">Piles</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getHeartData()">Heart issues</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getThyroidData()">Thyroid</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getLiverData()">Liver</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getTeethData()">Bad Teeth</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getDiarrheaData()">Diarrhea</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" (click)="getHighbpData()">High BP</a>
+  </li>
+</ul>
+
+<input type="text" name="productTitle" placeholder="Search by product" class="form-control mt-5 mb-5" [(ngModel)]="searchTerm">
 
 <div class="table-content">
-    <form #ref="ngForm" (ngSubmit)="saveMobile(ref.value)">
-<table class="table text-center text-white">
-   <thead>
-       <th>Brand</th>
+    <form #ref="ngForm" (ngSubmit)="saveProduct(ref.value)">
+<table class="table text-center">
+   <thead style="border-bottom: solid white 1px;height:40px">
+       <th>Product</th>
        <th>Description</th>
        <th>Image</th>
    </thead>
+   
    <tbody>
-       <tr *ngFor="let mobile of mobiles | search:searchTerm | paginate:{itemsPerPage:2,currentPage:p};let ind=index">
-          <td>
-              <span *ngIf="!editMobileStatus || editMobileindex!==ind">
-                {{mobile.productTitle | uppercase}}
-              </span>
-              <span *ngIf="editMobileStatus && editMobileindex==ind">
-                <input type="text" name="productTitle" id="" [(ngModel)]="editMobileObj.productTitle" >
-              </span> 
+      <tr *ngFor="let product of products | search:searchTerm | paginate:{itemsPerPage:3,currentPage:p};let ind=index">
+        <td>
+            <span *ngIf="!editProductStatus || editProductindex!==ind">
+              {{product.productTitle | uppercase}}
+            </span>
+            <span *ngIf="editProductStatus && editProductindex==ind">
+              <input type="text" name="productTitle" id="" [(ngModel)]="editProductObj.productTitle" >
+            </span> 
           </td>
           <td>
-            <span *ngIf="!editMobileStatus || editMobileindex!==ind">
-              {{mobile.description}}
+            <span *ngIf="!editProductStatus || editProductindex!==ind">
+              {{product.description}}
             </span>
-            <span *ngIf="editMobileStatus && editMobileindex==ind">
-              <input type="text" name="description" id="" [(ngModel)]="editMobileObj.description" >
+            <span *ngIf="editProductStatus && editProductindex==ind">
+              <input type="text" name="description" id="" [(ngModel)]="editProductObj.description">
             </span> 
         </td>
           <td>
-              <img src={{mobile.productImage}} alt="" width="100px" height="120px">
+              <img src={{product.productImage}} alt="" width="100px" height="120px">
           </td>
           <td>
-              <span *ngIf="!editMobileStatus || editMobileindex!==ind">
-                  <button class="btn btn-warning btn-sm m-1" (click)="editMobile(mobile,ind)"><i class="fas fa-edit">  </i></button>
-                  <button class="btn btn-danger btn-sm m-1" (click)="deleteMobile(mobile)"><i class="fas fa-trash-alt"></i></button>
+              <span *ngIf="!editProductStatus || editProductindex!==ind">
+                  <button class="btn btn-warning btn-sm m-1" (click)="editProduct(product,ind)"><i class="fas fa-edit">  </i></button>
+                  <button class="btn btn-danger btn-sm m-1" (click)="deleteProduct(product)"><i class="fas fa-trash-alt"></i></button>
               </span>
-              <span *ngIf="editMobileStatus && editMobileindex==ind">
-                  <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-save"></i></button>
+              <span *ngIf="editProductStatus && editProductindex==ind">
+                  <button class="btn btn-sm btn-success" type="submit" (click)="saveProduct(product)"><i class="fa fa-save"></i></button>
               </span>
           </td>
        </tr>

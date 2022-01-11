@@ -9,15 +9,15 @@ import { Product } from '../models/product.model';
 })
 export class MobilesComponent implements OnInit {
    
-  mobiles:Product[]=[];
+  generalData:Product[]=[];
   //inject obj of dataservice class
    constructor(private dsObj:DataService){
 
    }
    ngOnInit(){
-     this.dsObj.getMobilesData().subscribe(
+     this.dsObj.getGeneralData().subscribe(
        data=>{
-         this.mobiles=data;
+         this.generalData=data;
        },
        err=>{
          console.log("err is",err);

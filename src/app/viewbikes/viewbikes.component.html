@@ -1,0 +1,6 @@
+<input type="text" name="productTitle" placeholder="Search by Product" class="form-control mt-2" [(ngModel)]="searchTerm">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4 mt-4 mb-5">
+    <div class="col" *ngFor="let bikObj of bikes | search:searchTerm ">
+        <app-product-details [productObj]=bikObj></app-product-details>
+    </div>
+</div> 

@@ -5,12 +5,14 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
 import { ViewproductsComponent } from './viewproducts/viewproducts.component';
 import { SharedModule } from '../shared/shared.module';
+import { AddproductsComponent } from './addproducts/addproducts.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    ViewproductsComponent
+    ViewproductsComponent,
+    AddproductsComponent
   ],
   imports: [
     CommonModule,

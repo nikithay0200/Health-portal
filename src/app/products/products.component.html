@@ -1,24 +1,41 @@
-<!-- <div class="text-center">
-<h5 class="text-white">No. of products selected: {{productCount}}</h5>
-<span *ngFor="let title of productsSentbyChild" class="text-white">{{title}},</span> 
-</div> 
- <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-5 mb-5">
-    <div class="col" *ngFor="let prObj of products">
-        <app-product-details [productObj]=prObj (myEvent)="getProductDetailsfromChild($event)"></app-product-details>
-    </div>
-</div> -->
-<!-- pills -->
-<ul class="nav nav-pills justify-content-evenly mt-3">
+
+<ul class="nav nav-pills justify-content-evenly mt-3 pro">
     <li class="nav-item">
-      <a class="nav-link" routerLink="mobiles" routerLinkActive="active">Mobiles</a>
+      <a class="nav-link" routerLink="general" routerLinkActive="active">General</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="bikes" routerLinkActive="active">Bikes</a>
+      <a class="nav-link" routerLink="diabetes" routerLinkActive="active">Diabetes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="televisions" routerLinkActive="active">Televisions</a>
+      <a class="nav-link" routerLink="cancer" routerLinkActive="active">Cancer</a>
     </li>
-    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="fever" routerLinkActive="active">Fever</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="cold" routerLinkActive="active">Cold/Flu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="piles" routerLinkActive="active">Piles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="heart" routerLinkActive="active">Heart issues</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="thyroid" routerLinkActive="active">Thyroid</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="liver" routerLinkActive="active">Liver</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="teeth" routerLinkActive="active">Bad Teeth</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="diarrhea" routerLinkActive="active">Diarrhea</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="highbp" routerLinkActive="active">High BP</a>
+    </li>
   </ul>
   <div class="container">
       <router-outlet></router-outlet>

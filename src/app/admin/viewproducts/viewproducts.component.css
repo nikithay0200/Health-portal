@@ -1,7 +1,24 @@
 .table-content{
-    background-color:blueviolet;
+    background-color:rgb(160, 113, 204);
 }
 input{
     width:100%;
     border-radius:5px;
+}
+
+li{
+    background-color:#b808a9;
+}
+li a{
+  color:white;
+}
+
+a:hover{
+    cursor: pointer;
+}
+.nav .active a{
+  background-color: rgba(255, 255, 0, 0.836);
+  color:black;
+  font-weight:bolder;
+  border-radius:0;
 }

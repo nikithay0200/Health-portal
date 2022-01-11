@@ -1,6 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url("assets/bg-2.jfif");
+    background-color: #e2b2c9;
     background-size: 100% 100%;
     background-attachment: fixed;
+}
+
+.welcome{
+    font-family: 'Charmonman', cursive;
+    font-weight: bolder;
+    font-size: 3.5rem;
+    margin-top: 15px;
+    letter-spacing: 2px;
+
+}
+
+.desc{
+    margin-top: 25px;
+    font-family: 'Charmonman', cursive;
+    font-weight: bolder;
+}
+
+.navbar-nav .nav-item .active{
+  color:rgb(66, 63, 63);
+}
+
+.list{
+    font-family: 'Zilla Slab', serif;
+    font-weight: bolder;
+    font-size: 1.4rem;
+}
+.navbar-brand{
+    font-family: 'Nunito', sans-serif;
+    font-weight:bolder;
+    font-size:2rem;
+}
+
+.head{
+    color:rgb(63, 50, 50);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2.5rem;
+    padding-top:25px;
+    padding-bottom:10px;
+    
+ }
+
+ .pro{
+     font-family: 'Noto Sans Display', sans-serif;
+ }
+
+ .shop{
+     font-family: 'Josefin Sans', sans-serif;
+    color: black;
+     font-size: 1.2rem;
+ }
+
+.shop .inactive{
+    color:black;
+}
+
+.form-label{
+    font-weight:700;
+}
+
+.allButFooter{
+    min-height: calc(100vh - 209px);
 }

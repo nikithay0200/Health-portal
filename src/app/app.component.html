@@ -1,36 +1,77 @@
-
-  
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav *ngIf="us.username!='admin'" class="p-1  navbar navbar-expand-lg navbar-light" style="background-color: #cdf2ca;padding:0px;margin:0px;">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand ms-5" href="#"><img src="assets/swasth_logo.jpeg" alt="swasth" width="70" height="70"></a>
     <button class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="home" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Home</a>
+      <ul class="navbar-nav ms-auto me-5 mt-0 p-0 mb-2 mb-lg-0">
+        <li class="nav-item list pe-3">
+          <a class="nav-link" routerLink="home" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" #rla="routerLinkActive">
+            <span *ngIf="rla.isActive" style="color:brown">Home</span>
+            <span *ngIf="!rla.isActive" style="color:black">Home</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="register" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Register</a>
+        <li class="nav-item list pe-3">
+          <a class="nav-link" routerLink="register" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" #rla1="routerLinkActive">
+            <span *ngIf="rla1.isActive" style="color:brown">Register</span>
+            <span *ngIf="!rla1.isActive" style="color:black">Register</span>
+          </a>
         </li>
         
-        <li class="nav-item" *ngIf="!dsObj.userLoginStatus()">
-          <a class="nav-link " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Login</a>
+        <li class="nav-item list pe-3" *ngIf="!us.userLoginStatus">
+          <a class="nav-link " routerLink="login" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" #rla2="routerLinkActive">
+            <span *ngIf="rla2.isActive" style="color:brown">Login</span>
+            <span *ngIf="!rla2.isActive" style="color:black">Login</span>
+          </a>
         </li>
-        <li class="nav-item" *ngIf="dsObj.userLoginStatus()">
-          <a class="nav-link " routerLink="login" routerLinkActive="active"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)="dsObj.userLogout()">Logout</a>
+        <li class="nav-item list pe-3" *ngIf="us.userLoginStatus">
+          <a class="nav-link " routerLink="login" routerLinkActive="active"  data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" (click)="us.userLogout()" #rla3="routerLinkActive">
+            <span *ngIf="rla3.isActive" style="color:brown">Logout</span>
+            <span *ngIf="!rla3.isActive" style="color:black">Logout</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " routerLink="contactus" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Contact Us</a>
+        
+        <li *ngIf="us.username!='admin'" class="nav-item list pe-3">
+          <a class="nav-link " routerLink="products" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" #rla4="routerLinkActive">
+            <span *ngIf="rla4.isActive" style="color:brown">Products</span>
+            <span *ngIf="!rla4.isActive" style="color:black">Products</span>
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " routerLink="products" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " routerLink="test" routerLinkActive="active" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Test</a>
-        </li>
+        <li *ngIf="us.username=='admin'" class="nav-item pe-3 list dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" routerLinkActive="active" role="button" data-bs-toggle="dropdown" aria-expanded="false" #rla4="routerLinkActive">
+            <span *ngIf="rla4.isActive" style="color:brown">Products</span>
+            <span *ngIf="!rla4.isActive" style="color:black">Products</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li >
+              <a class="dropdown-item" (click)="navigatetoproducts()">Products</a>
+            </li>
+            <li >
+              <a class="dropdown-item" (click)="navigatetovieworadd()">View or Add</a>
+            </li>
+          </ul>
+        </li>   
+        <li class="nav-item pe-3 list dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" routerLinkActive="active" role="button" data-bs-toggle="dropdown" aria-expanded="false" #rla5="routerLinkActive">
+            <span *ngIf="rla5.isActive" style="color:brown">Profile</span>
+            <span *ngIf="!rla5.isActive" style="color:black">Profile</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li *ngIf="us.userLoginStatus">
+              <a class="dropdown-item" (click)="navigatetoprofile()" >Edit Profile</a>
+            </li>
+            <li *ngIf="!us.userLoginStatus">
+              <a class="dropdown-item" (click)="login()" >Edit Profile</a>
+            </li>
+            <li *ngIf="us.userLoginStatus">
+              <a class="dropdown-item" (click)="navigatetocart()">View Cart</a>
+            </li>
+            <li *ngIf="!us.userLoginStatus">
+              <a class="dropdown-item" (click)="login()">View Cart</a>
+            </li>
+          </ul>
+        </li>   
       </ul>
       
     </div>
@@ -38,9 +79,16 @@
 </nav>
   <!-- <h1 class="display-3 text-info text-center mt-5">Product Management System</h1> -->
 <!--Nesting products and footer-->
-<div class="container">
+
+<!-- <div *ngIf="us.username!='admin'" class="allButFooter container-fluid">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="us.username=='admin'" class="allButFooter ">
+  <router-outlet></router-outlet>
+</div> -->
+<div class="allButFooter container-fluid">
   <router-outlet></router-outlet>
 </div>
 
-<app-footer class="mt-auto"></app-footer>
+<app-footer *ngIf="us.username!='admin'"></app-footer>
 

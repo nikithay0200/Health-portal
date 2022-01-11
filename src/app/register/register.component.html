@@ -1,26 +1,27 @@
-<h2 class="text-center text-white">Registration Form</h2>
+<h2 class="text-center head" >Sign Up</h2>
 <div class="row">
     <div class="col-sm-2 col-md-3"></div>
     <div class="col-sm-8 col-md-6">
-        <form class="text-white">
+        <form #ref="ngForm" (ngSubmit)="onSignup(ref.value)" class="w-50 mx-auto" >
             <div class="mb-3">
-                <label for="un" class="form-label">UseName</label>
-                <input type="text" class="form-control" id="un">
+                <label for="un" class="form-label">UserName</label>
+                <input type="text" class="form-control" id="un" name="username" ngModel>
               </div>
               <div class="mb-3">
                 <label for="pw" class="form-label">Password</label>
-                <input type="password" class="form-control" id="pw" >
+                <input type="password" class="form-control" id="pw" name="password" ngModel>
               </div>
               <div class="mb-3">
                 <label for="em" class="form-label">Email</label>
-                <input type="email" class="form-control" id="em" >
+                <input type="email" class="form-control" id="em" name="email" ngModel>
               </div>
               <div class="mb-3">
-                <label for="dob" class="form-label">DOB</label>
-                <input type="text" class="form-control" id="dob" >
+                <label for="dob" class="form-label">Address</label>
+                <input type="text" class="form-control" id="dob" name="dob" ngModel>
               </div>
-              <button class="btn btn-success d-block mx-auto mb-2 mt-4">Register</button>
+              <button class="btn btn-success d-block mx-auto mb-2 mt-4" type="submit">Register</button>
             </form>
     </div>
     <div class="col-sm-2 col-md-3"></div>
 </div>
+

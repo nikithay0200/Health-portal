@@ -15,16 +15,16 @@ export class AddnewmobileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-mobileModel=new Mobile('','','');
-onSubmitNewMobile(){
-  this.dsObj.createNewMobile(this.mobileModel).subscribe(
-    res=>{
-      //navigate to viewmobiles
-      this.router.navigateByUrl("products/mobiles");
-    },
-    err=>{
-      console.log("error in creating new mobile",err);
-    }
-  )
-}
+// mobileModel=new Mobile('','','');
+// onSubmitNewMobile(){
+//   this.dsObj.createNewMobile(this.mobileModel).subscribe(
+//     res=>{
+//       //navigate to viewmobiles
+//       this.router.navigateByUrl("products/mobiles");
+//     },
+//     err=>{
+//       console.log("error in creating new mobile",err);
+//     }
+//   )
+// }
 }

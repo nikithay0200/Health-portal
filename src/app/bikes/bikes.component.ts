@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-bikes',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bikes.component.css']
 })
 export class BikesComponent implements OnInit {
+  
+  bikes:Product[]=[];
+  //inject obj of dataservice class
+   constructor(private dsObj:DataService){
 
-  constructor() { }
+   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.dsObj.getDiabetesData().subscribe(
+      data=>{
+        this.bikes=data;
+      },
+      err=>{
+        console.log("err is",err);
+      }
+    );
+    
   }
+  
 
 }

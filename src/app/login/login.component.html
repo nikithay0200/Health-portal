@@ -1,29 +1,23 @@
-<h2 class="text-center text-white mt-5">Login Form</h2>
+<h2 class="text-center head">Sign in</h2>
 <div class="row">
     <div class="col-sm-2 col-md-3"></div>
     <div class="col-sm-8 col-md-6">
-        <form class="text-white" #ref="ngForm" (ngSubmit)="ref.form.valid && onLogin(ref)">
-            <div class="mb-3">
-                <label for="un" class="form-label">UserName</label>
-                <input type="text" class="form-control" id="un" name="username" ngModel required minlength="4" 
-                #refUsername="ngModel" autocomplete="off">
-                <p class="text-danger" *ngIf="(ref.submitted || refUsername.touched)&&refUsername.errors?.required">
-                  *Username is required</p>
-                  <p class="text-danger" *ngIf="(ref.submitted || refUsername.touched)&&refUsername.errors?.minlength">
-                    minlength is 4</p>
-              </div>
-              <div class="mb-3">
-                <label for="pw" class="form-label">Password</label>
-                <input type="password" class="form-control" id="pw" name="password" ngModel required pattern="[A-Za-z]{6}"
-                #refPassword="ngModel" autocomplete="off">
-                <p class="text-danger" *ngIf="(ref.submitted || refPassword.touched)&&refPassword.errors?.required">
-                  *password is required</p>
-                <p class="text-danger" *ngIf="(ref.submitted || refPassword.touched)&&refPassword.errors?.pattern">
-                  pattern is not matched, enter min. of 6 letters</p>
-              </div>
+        
+              <form #ref="ngForm" (ngSubmit)="onLogin(ref.value)" class="w-50 mx-auto mt-5">
+                <div class="form-floating form-group-sm mb-3">
+                    <input type="username" class="form-control" id="username" placeholder="name@example.com" name="username" 
+                        ngModel>
+                    <label for="username">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password"  ngModel>
+                    <label for="password">Password</label>
+                </div>
               
-              <button type="submit" class="btn btn-success d-block mx-auto mb-2 mt-4">Login</button>
+                <button class="btn btn-success d-block mx-auto mb-3 mt-4" type="submit">Login</button>
             </form>
     </div>
     <div class="col-sm-2 col-md-3"></div>
 </div>
+
+<!-- <br><br><br><br><br><br><br> -->
